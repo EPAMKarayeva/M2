@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\2\ArrayFindIndex.csproj" />
     <ProjectReference Include="..\Max_Rec\Max_Rec.csproj" />
   </ItemGroup>
 
