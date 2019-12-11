@@ -41,35 +41,25 @@ namespace ArrayFindIndex
 
             for (int i = 0; i < array.Length; i++)
             {
-                int sum=GetSumBeforeElement(array, i);
-                int sum1=GetSumAfterElement(array, i);
+                int sumBeforeElement=GetSumBeforeElement(array, i);
+                int sumAfterElement=GetSumAfterElement(array, i);
 
-                if (CompareSums(sum, sum1))
+                if (CompareSums(sumBeforeElement, sumAfterElement))
                 {
                     temp = i;
                 }
             }
 
-            if(temp == 0)
-            {
-                return -1;
-            }
+            int x = (temp == 0)? -1 : temp;
 
-            return temp;
-            
+            return x;
+
         }
 
 
         public bool CompareSums(int i, int j)
         {
-            if (i == j)
-            {
-                return true;
-            }
-            else
-            {
-                return false; 
-            }
+            return i == j; 
         }
 
         public int GetSumBeforeElement(int[] array, int x)
