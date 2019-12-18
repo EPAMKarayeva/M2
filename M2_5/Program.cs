@@ -16,12 +16,23 @@ namespace M2_5
 
             NextBiggerNumber nextBiggerNumber = new NextBiggerNumber();
 
-            var array = nextBiggerNumber.NumberSorted(str);
+            var array = nextBiggerNumber.FindAllNumbers(str);
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i]);
-            }
+            //foreach (var item in array)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            var arrayofMax = nextBiggerNumber.FindArrayOfMax(str, array);
+
+            int nextBiggerNum = nextBiggerNumber.FindNextBigger(str, arrayofMax);
+
+            Console.WriteLine("Result: {0}", nextBiggerNum);
+
+
+
+
+
 
             Console.ReadKey();
         }
