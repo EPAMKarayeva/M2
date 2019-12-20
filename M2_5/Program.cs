@@ -30,10 +30,6 @@ namespace M2_5
             Console.WriteLine("Result: {0}", nextBiggerNum);
 
 
-
-
-
-
             Console.ReadKey();
         }
 

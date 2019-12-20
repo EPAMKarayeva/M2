@@ -62,7 +62,7 @@ namespace M2_5
 
             for (int i = m; i < charArray.Length; i++)
             {
-                for (int j = 0; j <= charArray.Length; j++)
+                for (int j = m+1; j <= charArray.Length; j++)
                 {
                     if (j < charArray.Length)
                     {
@@ -81,14 +81,14 @@ namespace M2_5
                         charArray[charArray.Length - 1] = temp;
                         Console.WriteLine(charArray);
 
-                        return charArray;
+                       return charArray;
                     }
 
 
                 }
             }
 
-            return charArray;
+             return charArray;
         }
 
         public ArrayList FindAllNumbers(string str)
