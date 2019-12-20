@@ -10,42 +10,6 @@ namespace M2_5
     public class NextBiggerNumber
     {
 
-
-        public int[] ConvertingToInt(string str)
-        {
-            var chrArray = str.ToCharArray();
-            var array = new int[str.Length];
-
-            for (int i = 0; i < chrArray.Length; i++)
-            {
-                var temp = chrArray[i].ToString();
-                array[i] = Convert.ToInt32(temp);
-            }
-
-            return array;
-        }
-
-        public int[] NumberSorted(string str)
-        {
-            var array = ConvertingToInt(str);
-            int temp;
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = i + 1; j < array.Length; j++)
-                {
-                    if (array[i] > array[j])
-                    {
-                        temp = array[i];
-                        array[i] = array[j];
-                        array[j] = temp;
-                    }
-                }
-            }
-
-            return array;
-        }
-
         public int ConvertInInt(char[] arrayChar)
         {
 
@@ -55,40 +19,25 @@ namespace M2_5
             return n;
         }
 
-        public char[] SwapSymbols(string str, int m)
+        public void SwapSymbols(string str, int m, ref ArrayList arrayList)
         {
             char[] charArray = str.ToCharArray();
             char temp;
 
             for (int i = m; i < charArray.Length; i++)
             {
-                for (int j = m+1; j <= charArray.Length; j++)
+                for (int j = m+1; j < charArray.Length; j++)
                 {
-                    if (j < charArray.Length)
-                    {
+                    
                         temp = charArray[i];
                         charArray[i] = charArray[j];
                         charArray[j] = temp;
                         Console.WriteLine(charArray);
-
-                        return charArray;
-                    }
-
-                    if (j >= charArray.Length)
-                    {
-                        temp = charArray[0];
-                        charArray[0] = charArray[charArray.Length - 1];
-                        charArray[charArray.Length - 1] = temp;
-                        Console.WriteLine(charArray);
-
-                       return charArray;
-                    }
-
-
+                        arrayList.Add(charArray);
+  
                 }
-            }
 
-             return charArray;
+            }
         }
 
         public ArrayList FindAllNumbers(string str)
@@ -97,21 +46,19 @@ namespace M2_5
 
             ArrayList arrayList = new ArrayList();
 
-            for (int i = 0; i < 5040; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var charArray = SwapSymbols(str, i);
-
-                arrayList.Add(charArray);
+                SwapSymbols(str, i, ref arrayList);
             }
 
             ArrayList arList = new ArrayList();
-
             int n = 0;
 
             foreach (char[] item in arrayList)
             {
                 n = ConvertInInt(item);
                 arList.Add(n);
+                Console.WriteLine("After:"+n);
             }
 
             return arList;
@@ -141,9 +88,8 @@ namespace M2_5
         public int FindNextBigger(string str, ArrayList arrayList)
         {
             int n = Convert.ToInt32(str);
-            
-            
-            
+       
+     
             int[] array = (int[])arrayList.ToArray(typeof(Int32));
 
             if (array.Length != 0)
